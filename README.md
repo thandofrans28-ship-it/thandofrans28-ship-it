@@ -1,16 +1,23 @@
-## Hi there 👋
+# Hi, I'm Thando Frans 👋
 
-<!--
-**thandofrans28-ship-it/thandofrans28-ship-it** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Grade 12 student (IEB) → Actuarial Science at UCT / Stellenbosch (2027)**
+📍 East London, South Africa
 
-Here are some ideas to get you started:
+I build practical software while finishing school — my focus is the maths–code intersection: statistics, automation, and shipping real products.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🚀 What I'm building
+- **Pathfinda** — a career path-finding app built with Flutter, live on the Google Play Store (in testing)
+- **Automation pipelines** — content automation with n8n, Composio, and AI APIs
+- Digital products on Gumroad
+
+## 🛠️ Tech
+`Python` · `Dart / Flutter` · `SQL` · `Delphi` · AI/LLM automation
+
+## 📚 Currently
+- Taking **Further Studies Mathematics & Statistics** (IEB)
+- Deputy Head Boy at Merrifield College
+- Preparing for actuarial science — probability, financial maths, and lots of Python
+
+## 📫 Reach me
+- ✉️ thandofrans28@gmail.com
+- 💼 [LinkedIn](https://www.linkedin.com/in/thando-frans)
