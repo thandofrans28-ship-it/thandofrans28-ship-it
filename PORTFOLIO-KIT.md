@@ -11,6 +11,8 @@ Everything drafted to strengthen your profile before university. Copy each piece
 | **LinkedIn bio + first post** | [`personal-brand/linkedin-bio-and-post.md`](personal-brand/linkedin-bio-and-post.md) | Paste into LinkedIn |
 | **200-word story** | [`personal-brand/my-story.md`](personal-brand/my-story.md) | Bursary essays, About pages, interviews |
 | **Bursary tracker (reference)** | [`bursaries/README.md`](bursaries/README.md) | Backup of your live Notion tracker |
+| **Personal website** | [`index.html`](index.html) + `sitemap.xml`, `robots.txt`, `404.html`, `CNAME` | Deploy to `thandofrans.com` (SEO-optimised) |
+| **Go-live + SEO playbook** | [`DEPLOY-AND-SEO.md`](DEPLOY-AND-SEO.md) | Steps to rank #1 for your name |
 
 ## 🎯 Next actions (in order)
 

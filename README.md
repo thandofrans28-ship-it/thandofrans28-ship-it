@@ -8,6 +8,7 @@
 </p>
 
 <p align="center">
+  <a href="https://thandofrans.com"><img src="https://img.shields.io/badge/Website-thandofrans.com-38bdf8?style=flat&logo=firefox&logoColor=white" alt="Website"/></a>
   <a href="https://www.linkedin.com/in/thando-frans"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <a href="mailto:thandofrans28@gmail.com"><img src="https://img.shields.io/badge/Email-thandofrans28-EA4335?style=flat&logo=gmail&logoColor=white" alt="Email"/></a>
   <img src="https://komarev.com/ghpvc/?username=thandofrans28-ship-it&label=Profile%20views&color=0e75b6&style=flat" alt="views"/>
