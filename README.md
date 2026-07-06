@@ -3,7 +3,7 @@
 <h1 align="center">Hi, I'm Thando Frans 👋</h1>
 
 <p align="center">
-  <b>Grade 12 (IEB) → Actuarial Science @ UCT / Stellenbosch, 2027</b><br/>
+  <b>Grade 12 (IEB) → Electrical Engineering @ UCT / Stellenbosch, 2027</b><br/>
   📍 East London, South Africa &nbsp;·&nbsp; Building at the maths × code intersection
 </p>
 
@@ -18,9 +18,9 @@
 
 ### 🧭 About
 
-I'm a matric student who ships real software while finishing school. My focus is the **maths–code intersection**: probability, statistics, automation, and turning ideas into products people actually use. I'm working toward **Actuarial Science**, and I already build the quantitative, data-driven tools that career is built on.
+I'm a matric student who ships real software while finishing school. My focus is the **maths–code intersection**: turning ideas into products people actually use, and understanding the physical systems underneath. I'm heading into **Electrical Engineering**, and I don't wait for university to start building.
 
-- 🎯 **Goal:** Actuarial Science (UCT / Stellenbosch), 2027 intake
+- 🎯 **Goal:** Electrical Engineering (UCT / Stellenbosch), 2027 intake
 - 🏫 **Deputy Head Boy** at Merrifield College — IEB, Further Studies Mathematics & Statistics
 - ⚡ I like to **ship** (it's literally in my username)
 
@@ -50,7 +50,7 @@ I'm a matric student who ships real software while finishing school. My focus is
 
 ### 📚 Right now
 
-- Preparing for **Actuarial Science** — probability, financial maths, and lots of Python
+- Pushing **Maths & Physical Sciences** as hard as I can, and shipping projects on the side
 - Writing the **NBT** and finishing IEB matric (aiming for Dux 2026)
 - Growing Pathfinda from closed testing → public launch
 

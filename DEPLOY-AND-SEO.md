@@ -88,8 +88,8 @@ back into each of those profiles so the links go both ways.
 - [ ] (Later) Add an OG share image (`og.png`) and reference it in `index.html`
 - [ ] (Later) Publish one short post and link it home
 
-## ⚠️ Fix the identity conflict first
+## ✅ One consistent story
 
-Your site says **electrical engineering**; your README/Notion say **actuarial science**. Google — and
-admissions officers — reward one clear story. Pick the lane you're actually committing to and make the
-site, README, LinkedIn, and bios all say the same thing. (Tell me which and I'll align everything.)
+Your whole profile now tells one story: **Electrical Engineering, 2027**. The website, README,
+LinkedIn drafts, personal story, and Pathfinda text all match — which is exactly what Google (and
+admissions officers) reward. Keep any new profile you create on the same message.

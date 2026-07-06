@@ -49,9 +49,9 @@ process to **closed testing** — the real, unglamorous work of shipping, not ju
 **What's next.** Bursary matching (connecting students to funding they qualify for), an
 NBT/APS calculator, and offline support for students with limited data.
 
-**Why it matters to me.** I want to be an actuary — someone who turns data into better
-decisions under uncertainty. Pathfinda is that instinct applied early: I saw people making
-high-stakes decisions with bad information, and I built the tool to fix it.
+**Why it matters to me.** I'm heading into electrical engineering — I like taking a messy,
+real-world problem and building something that actually works. Pathfinda is that instinct applied
+early: I saw people making high-stakes decisions with bad information, and I built the tool to fix it.
 
 ---
 

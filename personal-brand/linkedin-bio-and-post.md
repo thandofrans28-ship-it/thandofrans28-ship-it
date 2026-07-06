@@ -8,17 +8,17 @@ launch post below.
 ## 🏷️ Headline (the one line under your name — 220 char max)
 
 **Recommended:**
-> Aspiring Actuary | Grade 12 (IEB) | Founder of Pathfinda 🧭 | I build at the maths × code intersection
+> Future Electrical Engineer | Grade 12 (IEB) | Founder of Pathfinda 🧭 | I build at the maths × code intersection
 
 **Alternatives:**
-- `Future Actuarial Scientist | I build ed-tech in Flutter | Deputy Head Boy @ Merrifield College`
-- `17 y/o builder from East London 🇿🇦 | Pathfinda founder | Actuarial Science 2027 | Python · Flutter`
+- `Aspiring Electrical Engineer | I build software in Flutter | Deputy Head Boy @ Merrifield College`
+- `17 y/o builder from East London 🇿🇦 | Pathfinda founder | Electrical Engineering 2027 | Flutter · Python`
 
 ---
 
 ## 📇 About section
 
-> I'm a Grade 12 student in East London heading into **Actuarial Science** — and I don't
+> I'm a Grade 12 student in East London heading into **Electrical Engineering** — and I don't
 > wait for university to start building.
 >
 > I work at the intersection of **mathematics and code**: probability, statistics,
@@ -31,8 +31,8 @@ launch post below.
 > life like an operator — I'm **Deputy Head Boy at Merrifield College** and I'm aiming for
 > Dux 2026.
 >
-> **What I'm looking for:** actuarial and quantitative bursaries for 2027, mentors in the
-> actuarial and data-science world, and people building things worth learning from.
+> **What I'm looking for:** engineering and quantitative bursaries for 2027, mentors in the
+> electrical-engineering and tech world, and people building things worth learning from.
 >
 > 🛠️ Python · Dart/Flutter · SQL · Delphi · AI/LLM automation
 > 📫 thandofrans28@gmail.com
@@ -54,15 +54,15 @@ launch post below.
 > for, the careers they lead to, and where to study them. I designed it, built it in
 > Flutter, and took it all the way through to closed testing on Google Play — solo.
 >
-> I'm heading into **Actuarial Science** in 2027, and honestly Pathfinda is that same
-> instinct applied early: take messy, high-stakes decisions and make them clearer with data.
+> I'm heading into **Electrical Engineering** in 2027, and honestly Pathfinda is that same
+> instinct applied early: understand a messy problem, then build something that actually solves it.
 >
 > Next up: bursary matching, so students find the funding they qualify for too.
 >
-> If you work in actuarial science, data, or ed-tech — or you just remember how confusing
+> If you work in engineering, tech, or ed-tech — or you just remember how confusing
 > Grade 12 was — I'd love to connect. 👇
 >
-> #ActuarialScience #EdTech #Flutter #SouthAfrica #BuildInPublic #Matric2026
+> #ElectricalEngineering #EdTech #Flutter #SouthAfrica #BuildInPublic #Matric2026
 
 ---
 

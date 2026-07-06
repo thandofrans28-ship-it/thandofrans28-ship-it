@@ -100,7 +100,7 @@ lib/
 ## 🧑‍💻 About the Author
 
 Built by **Thando Frans** — a Grade 12 (IEB) student in East London, South Africa, heading into
-**Actuarial Science**. Pathfinda started from a simple observation: my classmates were making
+**Electrical Engineering**. Pathfinda started from a simple observation: my classmates were making
 massive decisions with almost no data. So I built the tool I wished we had.
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/thando-frans)
