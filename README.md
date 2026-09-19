@@ -1,6 +1,6 @@
 # Hi, I'm Thando Frans 👋
 
-**Grade 12 student (IEB) → Actuarial Science at UCT / Stellenbosch (2027)**
+**Grade 12 student (IEB) → Electrical Engineering at UCT / Stellenbosch (2027)**
 📍 East London, South Africa
 
 I build practical software while finishing school — my focus is the maths–code intersection: statistics, automation, and shipping real products.
@@ -15,8 +15,8 @@ I build practical software while finishing school — my focus is the maths–co
 
 ## 📚 Currently
 - Taking **Further Studies Mathematics & Statistics** (IEB)
-- Deputy Head Boy at Merrifield College
-- Preparing for actuarial science — probability, financial maths, and lots of Python
+- Elected Deputy Leader on the Student Representative Council at Merrifield College
+- Preparing for electrical engineering — maths, physics, and lots of Python
 
 ## 📫 Reach me
 - ✉️ thandofrans28@gmail.com
