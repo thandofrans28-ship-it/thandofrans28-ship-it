@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thando Frans — Software Builder & Future Electrical Engineer | East London, South Africa</title>
+<meta name="description" content="Thando Frans — Grade 12 student and self-taught software developer from East London, South Africa. Builder of Pathfinda, headed for electrical engineering. See my projects, code, and what I'm working toward.">
+<meta name="author" content="Thando Frans">
+<meta name="keywords" content="Thando Frans, Thando Frans East London, Thando Frans developer, Thando Frans Pathfinda, Thando Frans engineer, Merrifield College">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://thandofrans.com/">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Thando Frans">
+<meta property="profile:first_name" content="Thando">
+<meta property="profile:last_name" content="Frans">
+<meta property="og:title" content="Thando Frans — Software Builder & Future Electrical Engineer">
+<meta property="og:description" content="Grade 12 student and self-taught developer from East London, South Africa. Builder of Pathfinda, headed for electrical engineering.">
+<meta property="og:url" content="https://thandofrans.com/">
+<meta property="og:locale" content="en_ZA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Thando Frans — Software Builder & Future Electrical Engineer">
+<meta name="twitter:description" content="Grade 12 student & self-taught developer from East London, SA. Builder of Pathfinda.">
+
+<!-- Favicon: TF monogram -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230d1117'/%3E%3Ctext x='50' y='68' font-family='Space Grotesk,Arial,sans-serif' font-size='52' font-weight='700' fill='%2338bdf8' text-anchor='middle'%3ETF%3C/text%3E%3C/svg%3E">
+
+<!-- Structured data: tells Google that this site, GitHub and LinkedIn are all the same person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Thando Frans",
+  "alternateName": "Thando",
+  "url": "https://thandofrans.com/",
+  "jobTitle": "Student Software Developer",
+  "description": "Grade 12 student and self-taught software developer from East London, South Africa. Builder of Pathfinda, headed for electrical engineering.",
+  "email": "mailto:thandofrans28@gmail.com",
+  "nationality": "South African",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "East London",
+    "addressRegion": "Eastern Cape",
+    "addressCountry": "ZA"
+  },
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "Merrifield College"
+  },
+  "knowsAbout": ["Software Development", "Flutter", "Dart", "Electrical Engineering", "Mathematics", "Physics", "Automation"],
+  "sameAs": [
+    "https://github.com/thandofrans28-ship-it",
+    "https://www.linkedin.com/in/thando-frans"
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --line:#232b36;
+    --ink:#e8edf3; --muted:#9aa7b4; --accent:#38bdf8; --accent-2:#fbbf24;
+    --radius:14px; --maxw:720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    padding:0 20px;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:88px 0 96px}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; line-height:1.2}
+
+  /* Hero */
+  .kicker{color:var(--accent); font-weight:600; letter-spacing:.04em; text-transform:uppercase; font-size:.78rem}
+  h1{font-size:clamp(2.1rem,6vw,3.1rem); font-weight:700; margin:14px 0 10px; letter-spacing:-.02em}
+  .lead{color:var(--muted); font-size:1.12rem; max-width:56ch}
+  .links{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:9px 16px; border:1px solid var(--line); border-radius:999px;
+    color:var(--ink); text-decoration:none; font-size:.92rem; font-weight:500;
+    transition:border-color .2s, transform .2s, color .2s;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent); transform:translateY(-1px)}
+  .btn.primary{background:var(--accent); color:#08131c; border-color:var(--accent)}
+  .btn.primary:hover{color:#08131c; opacity:.9}
+
+  section{margin-top:64px}
+  h2{font-size:1.35rem; font-weight:600; margin-bottom:6px}
+  h2 .dot{color:var(--accent)}
+  .section-sub{color:var(--muted); font-size:.95rem; margin-bottom:22px}
+
+  /* Cards */
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; margin-bottom:16px; transition:border-color .2s, transform .2s;
+  }
+  .card:hover{border-color:#2f3b49; transform:translateY(-2px)}
+  .card h3{font-size:1.08rem; font-weight:600; margin-bottom:6px}
+  .card p{color:var(--muted); font-size:.95rem}
+  .tags{display:flex; flex-wrap:wrap; gap:7px; margin-top:14px}
+  .tag{font-size:.74rem; color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:3px 9px}
+  .featured{border-color:#26404d}
+  .featured .badge{display:inline-block; font-size:.72rem; font-weight:600; color:var(--accent-2); margin-bottom:8px; letter-spacing:.03em}
+
+  /* Toolkit */
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px}
+  .chip{background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-size:.9rem}
+  .chip b{display:block; color:var(--ink); font-family:'Space Grotesk',sans-serif; font-size:.82rem; margin-bottom:2px}
+  .chip span{color:var(--muted); font-size:.82rem}
+
+  .prose p{color:var(--muted); margin-bottom:12px}
+  .prose strong{color:var(--ink); font-weight:600}
+
+  footer{margin-top:72px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:.85rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+  footer a{color:var(--muted); text-decoration:none}
+  footer a:hover{color:var(--accent)}
+  ::selection{background:var(--accent); color:#08131c}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <!-- HERO -->
+  <header>
+    <p class="kicker">East London, South Africa</p>
+    <h1>Thando Frans</h1>
+    <p class="lead">Grade 12 student, self-taught developer, and future electrical engineer. I build software that solves real problems for South African students — and I'm learning how the physical systems behind it all actually work.</p>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/thandofrans28-ship-it" target="_blank" rel="noopener me">GitHub →</a>
+      <a class="btn" href="https://www.linkedin.com/in/thando-frans" target="_blank" rel="noopener me">LinkedIn</a>
+      <a class="btn" href="mailto:thandofrans28@gmail.com">Email</a>
+    </div>
+  </header>
+
+  <!-- ABOUT (crawlable intro, name-rich) -->
+  <section id="about">
+    <h2>About<span class="dot">.</span></h2>
+    <div class="prose">
+      <p><strong>I'm Thando Frans</strong>, a matric student at Merrifield College in East London, South Africa. I taught myself to code so I could turn ideas into things people actually use, and I've been shipping projects ever since — from a mobile app for students to automation pipelines that run themselves.</p>
+      <p>I'm heading into <strong>electrical engineering</strong> in 2027, and I don't wait for university to start building. This is where I keep my work.</p>
+    </div>
+  </section>
+
+  <!-- PATHFINDA -->
+  <section id="pathfinda">
+    <h2>Pathfinda<span class="dot">.</span></h2>
+    <p class="section-sub">The project I care most about right now.</p>
+    <div class="card featured">
+      <span class="badge">★ FLAGSHIP</span>
+      <h3>Pathfinda</h3>
+      <p>A mobile app that helps South African high-school students figure out what to study and where — matching subjects, marks, and interests to real university programmes and bursaries. Built because career guidance in most SA schools is thin, and the information that exists is scattered and hard to act on. Currently in closed testing on the Google Play Store.</p>
+      <div class="tags">
+        <span class="tag">Flutter</span>
+        <span class="tag">Dart</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">LLM backend</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Other things I've built<span class="dot">.</span></h2>
+    <p class="section-sub">Smaller projects, experiments, and things I ship on the side.</p>
+
+    <div class="card">
+      <h3>ClutchClips AI</h3>
+      <p>A lightweight web tool with a dark gold/emerald design system, built in vanilla HTML/CSS/JS — no framework, no build step. An exercise in shipping something clean and fast from scratch.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+    </div>
+
+    <div class="card">
+      <h3>Automation &amp; pipelines</h3>
+      <p>Content and publishing pipelines wired together with n8n and API integrations — the kind of plumbing that turns a manual weekly chore into something that runs itself.</p>
+      <div class="tags"><span class="tag">n8n</span><span class="tag">Python</span><span class="tag">APIs</span></div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT -->
+  <section id="toolkit">
+    <h2>Toolkit<span class="dot">.</span></h2>
+    <p class="section-sub">What I build with.</p>
+    <div class="grid">
+      <div class="chip"><b>Languages</b><span>Dart, Python, JavaScript, Delphi</span></div>
+      <div class="chip"><b>Mobile</b><span>Flutter, Firebase</span></div>
+      <div class="chip"><b>Web</b><span>HTML, CSS, vanilla JS</span></div>
+      <div class="chip"><b>Automation</b><span>n8n, LLM APIs, Composio</span></div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why">
+    <h2>Why electrical engineering<span class="dot">.</span></h2>
+    <div class="prose">
+      <p>I started with software because it was the fastest way to make an idea real with nothing but a laptop. But the more I built, the more I wanted to understand the layer underneath — <strong>the circuits, signals, and power systems that everything I write eventually runs on.</strong></p>
+      <p>Electrical engineering sits exactly where I want to be: rigorous maths and physics, but pointed at things you can build and measure. South Africa has real, unglamorous engineering problems — energy, reliable infrastructure, access — and I'd rather work on those than around them.</p>
+      <p>Right now that means pushing Maths and Physical Sciences as hard as I can, shipping projects that prove I can finish things, and heading into an EE degree in 2027 ready to work.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Get in touch<span class="dot">.</span></h2>
+    <div class="prose">
+      <p>I'm open to mentorship, bursary opportunities, and interesting projects. The fastest way to reach me is email: <strong><a href="mailto:thandofrans28@gmail.com" style="color:var(--accent);text-decoration:none">thandofrans28@gmail.com</a></strong>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Thando Frans · East London, South Africa</span>
+    <span><a href="https://github.com/thandofrans28-ship-it">GitHub</a> · <a href="https://www.linkedin.com/in/thando-frans">LinkedIn</a></span>
+  </footer>
+
+</main>
+</body>
+</html>
