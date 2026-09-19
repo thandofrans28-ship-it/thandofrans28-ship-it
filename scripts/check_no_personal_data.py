@@ -34,7 +34,11 @@ import sys
 # Each rule: (label, compiled pattern). Kept deliberately narrow — a noisy
 # guard gets disabled, and a disabled guard protects nothing.
 RULES: list[tuple[str, re.Pattern[str]]] = [
-    ("SA ID number", re.compile(r"\b\d{6}\s?\d{4}\s?\d{2}\s?\d\b")),
+    # The first six digits are YYMMDD, so validating the month and day costs
+    # nothing and removes the one false positive that showed up in practice:
+    # a JavaScript epoch-millisecond timestamp is also 13 digits.
+    ("SA ID number", re.compile(
+        r"\b\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])\s?\d{4}\s?\d{2}\s?\d\b")),
     ("bursary/application reference", re.compile(r"\b\d{2}[A-Z]{2}\d{5,}[A-Z]?\b")),
     # Two narrow rules beat one wide one. A subject sitting right next to a
     # percentage is a mark; a subject in the same sentence as any percentage is

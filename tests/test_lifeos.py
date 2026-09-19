@@ -136,6 +136,13 @@ def test_store_fills_keys_added_later(tmp_path, monkeypatch):
     assert "deadlines" in store.load()
 
 
+@pytest.mark.skipif(
+    os.name == "nt",
+    reason="os.chmod on Windows only toggles the read-only bit, so the mode stays "
+           "0o666 whatever save() asks for. store.save() already treats chmod as "
+           "best effort; on Windows the store is protected by the user-profile ACL "
+           "instead, which st_mode cannot express.",
+)
 def test_store_is_not_world_readable(tmp_path, monkeypatch):
     monkeypatch.setenv("LIFE_HOME", str(tmp_path))
     store.save(store.load())

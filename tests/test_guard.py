@@ -78,6 +78,10 @@ def test_guard_catches_personal_data(repo, content, label):
     "Physical Sciences P1 weighting is 21,6% of the paper",
     "electric circuits set at 21,6% against a 15% syllabus weighting",
     "Afrikaans Afdeling B is 60% format",
+    # Epoch-millisecond timestamps are 13 digits too, and turned up in two of
+    # the other repos. The ID rule validates YYMMDD rather than digit count.
+    "const t = 1431324155629;",
+    "ts: 1755835200000",
 ])
 def test_guard_allows_ordinary_prose(repo, content):
     repo(content)
