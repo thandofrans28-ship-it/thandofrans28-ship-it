@@ -1,0 +1,21 @@
+{
+  "_comment": "IEB/NSC final timetable, Oct-Nov 2026. Public information.",
+  "source": "NSC final timetable, cross-checked against MATRIC ENDGAME OS",
+  "papers": [
+    {"date": "2026-10-15", "paper": "IT P1 — Practical",        "time": "09:00-12:00", "subject": "Information Technology"},
+    {"date": "2026-10-19", "paper": "FSM P1 (Standard)",        "time": "09:00-11:00", "subject": "Further Studies Maths", "certifying": false},
+    {"date": "2026-10-19", "paper": "FSM P2 (Elective)",        "time": "13:00-14:00", "subject": "Further Studies Maths", "certifying": false},
+    {"date": "2026-10-20", "paper": "Afrikaans FAL V1",         "time": "09:00-11:30", "subject": "Afrikaans FAL"},
+    {"date": "2026-10-22", "paper": "IT P2 — Theory",           "time": "09:00-12:00", "subject": "Information Technology"},
+    {"date": "2026-10-26", "paper": "Mathematics P1",           "time": "09:00-12:00", "subject": "Mathematics"},
+    {"date": "2026-10-28", "paper": "Life Sciences P1",         "time": "09:00-12:00", "subject": "Life Sciences"},
+    {"date": "2026-10-30", "paper": "Afrikaans FAL V2",         "time": "09:00-11:30", "subject": "Afrikaans FAL"},
+    {"date": "2026-11-02", "paper": "Physical Sciences P1",     "time": "09:00-12:00", "subject": "Physical Sciences"},
+    {"date": "2026-11-06", "paper": "Life Sciences P2",         "time": "09:00-11:00", "subject": "Life Sciences"},
+    {"date": "2026-11-10", "paper": "Mathematics P2",           "time": "09:00-12:00", "subject": "Mathematics"},
+    {"date": "2026-11-12", "paper": "English HL P1",            "time": "09:00-12:00", "subject": "English HL"},
+    {"date": "2026-11-16", "paper": "Physical Sciences P2",     "time": "09:00-12:00", "subject": "Physical Sciences"},
+    {"date": "2026-11-19", "paper": "English HL P2 — LAST",     "time": "09:00-12:00", "subject": "English HL"}
+  ],
+  "free_days_inside_run": ["2026-11-03", "2026-11-04", "2026-11-05", "2026-11-09"]
+}

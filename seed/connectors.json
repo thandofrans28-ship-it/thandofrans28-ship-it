@@ -1,0 +1,27 @@
+{
+  "_comment": "Connector registry: which tool owns which part of the system. Status as at 2026-09-19.",
+  "connectors": [
+    {"name": "Google Calendar", "status": "connected",    "tier": "spine",   "owns": "The schedule — every study block, deadline marker and fixed commitment"},
+    {"name": "Notion",          "status": "connected",    "tier": "spine",   "owns": "MATRIC ENDGAME OS, Bursary & Deadline Tracker, Study & Exam Planner, Weekly Tracker"},
+    {"name": "Gmail",           "status": "connected",    "tier": "spine",   "owns": "Every bursary conversation — the only place replies are owed"},
+    {"name": "Google Drive",    "status": "connected",    "tier": "spine",   "owns": "Document vault: certified ID, results, CV, proof of address"},
+    {"name": "github",          "status": "connected",    "tier": "build",   "owns": "pathfinda, clutchclips.ai, tapdeck, this repo"},
+    {"name": "Supabase",        "status": "needs_reconnect", "tier": "build", "owns": "App backends — reconnect before the next Pathfinda session"},
+    {"name": "Vercel",          "status": "disconnected", "tier": "build",   "owns": "Web deploys"},
+    {"name": "composio",        "status": "connected",    "tier": "build",   "owns": "Automation pipelines"},
+    {"name": "emergent",        "status": "connected",    "tier": "build",   "owns": "Agent jobs"},
+    {"name": "Figma",           "status": "connected",    "tier": "design",  "owns": "App UI"},
+    {"name": "Canva",           "status": "connected",    "tier": "design",  "owns": "Store assets, social graphics"},
+    {"name": "Adobe for creativity", "status": "connected", "tier": "design", "owns": "PDF assembly for application packs"},
+    {"name": "higgsfiled",      "status": "connected",    "tier": "design",  "owns": "Generated media"},
+    {"name": "alpha vantage",   "status": "disconnected", "tier": "dormant", "owns": "Market data — from the actuarial phase, not the EE phase"},
+    {"name": "Atlassian Rovo",  "status": "connect_incomplete", "tier": "dormant", "owns": "Unused"},
+    {"name": "base44",          "status": "needs_reconnect",    "tier": "dormant", "owns": "Unused"},
+    {"name": "Lovable",         "status": "connect_incomplete", "tier": "dormant", "owns": "Unused"},
+    {"name": "Microsoft 365",   "status": "connect_incomplete", "tier": "dormant", "owns": "Unused"},
+    {"name": "Slack",           "status": "not_connected",      "tier": "dormant", "owns": "Unused"},
+    {"name": "Spotify",         "status": "not_connected",      "tier": "dormant", "owns": "Unused"},
+    {"name": "Strava",          "status": "not_connected",      "tier": "dormant", "owns": "Unused"},
+    {"name": "Webflow",         "status": "connect_incomplete", "tier": "dormant", "owns": "Unused"}
+  ]
+}
