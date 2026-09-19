@@ -269,3 +269,26 @@ def test_requirement_exemption_does_not_touch_the_other_rules(repo):
     has to be caught."""
     repo(f"Applicants require an ID: {FAKE_ID}")
     assert any("SA ID number" in f for f in guard.scan())
+
+
+
+# ── CSS percentages are not marks ────────────────────────────────────────────
+# Found in clutchclips.ai: `mark { width: 60% }` is an HTML element selector,
+# and stylesheets are full of percentages.
+
+@pytest.mark.parametrize("content", [
+    "mark { width: 60% }",
+    "  mark { width: 60%; }",
+    ".bar { height: 80% }",
+    "progress::-webkit-progress-value { width: 75% }",
+    "grid-template-columns: 60% 40%;",
+])
+def test_css_percentages_are_not_flagged(repo, content):
+    repo(content, name="style.css")
+    assert guard.scan() == [], f"CSS flagged: {content!r}"
+
+
+def test_a_mark_of_is_still_caught(repo):
+    """Tightening to require 'of' must not lose the real phrasing."""
+    repo("a mark of 84% in Maths")
+    assert any("reported mark" in f for f in guard.scan())

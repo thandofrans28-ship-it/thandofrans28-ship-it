@@ -47,9 +47,12 @@ RULES: list[tuple[str, re.Pattern[str]]] = [
     ("subject mark", re.compile(
         r"\b(English|Mathematics|Maths|Physical Sciences|PhysSci|Life Sciences|"
         r"Afrikaans|Information Technology|Life Orientation)\b[\s:=-]{0,4}\b([4-9]\d)\s?%")),
+    # "of" is mandatory after mark/result/average. Bare "mark" matched the CSS
+    # selector in `mark { width: 60% }`, and stylesheets are full of
+    # percentages — another way this guard would have cried wolf.
     ("reported mark", re.compile(
-        r"\b(got|scored|achieved|sitting at|currently at|mark(?:ed)?(?: of)?|"
-        r"result(?: of)?|average(?: of)?)\b\D{0,10}?\b([4-9]\d)\s?%", re.I)),
+        r"\b(got|scored|achieved|sitting at|currently at|"
+        r"(?:mark(?:ed)?|result|average)\s+of)\b\D{0,10}?\b([4-9]\d)\s?%", re.I)),
     ("personal store file", re.compile(r"(^|/)store\.json\b")),
     ("bank/account number", re.compile(r"\b(?:acc(?:ount)?|iban)\W{0,3}\d{8,}\b", re.I)),
 ]
