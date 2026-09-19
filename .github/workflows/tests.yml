@@ -1,0 +1,40 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # test_repo_contains_no_personal_store shells out to `git ls-files`,
+          # so it needs a real checkout rather than an export.
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pytest
+        run: python -m pip install --quiet pytest
+
+      - name: Run tests
+        run: python -m pytest tests/ -q
+
+      - name: Scan every tracked file for personal data
+        run: |
+          # The hook guards commits locally; this guards the whole repo.
+          # A fresh checkout stages nothing, so --all reads file contents.
+          python3 scripts/check_no_personal_data.py --all < /dev/null
+
+      - name: Check the CLI runs with no store
+        env:
+          LIFE_HOME: /tmp/no-such-store
+        run: |
+          python ./life --version
+          python ./life brief
+          python ./life exams
