@@ -8,7 +8,6 @@
 </p>
 
 <p align="center">
-  <a href="https://thandofrans.com"><img src="https://img.shields.io/badge/Website-thandofrans.com-38bdf8?style=flat&logo=firefox&logoColor=white" alt="Website"/></a>
   <a href="https://www.linkedin.com/in/thando-frans"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <a href="mailto:thandofrans28@gmail.com"><img src="https://img.shields.io/badge/Email-thandofrans28-EA4335?style=flat&logo=gmail&logoColor=white" alt="Email"/></a>
   <img src="https://komarev.com/ghpvc/?username=thandofrans28-ship-it&label=Profile%20views&color=0e75b6&style=flat" alt="views"/>
@@ -30,6 +29,7 @@ I'm a matric student who ships real software while finishing school. My focus is
 |---|---|---|
 | **[Pathfinda](https://github.com/thandofrans28-ship-it/pathfinda)** | A career path-finding app that helps SA students match their subjects & interests to degrees and careers. Live on Google Play (closed testing). | `Flutter` · `Dart` |
 | **Automation pipelines** | Content & workflow automation connecting AI/LLM APIs to real actions. | `n8n` · `Composio` · `Python` |
+| **[`life`](docs/LIFE_OS.md)** | A CLI that answers one question across Notion, Calendar, Gmail and Drive: *what is true today?* Offline, deterministic, 87 tests. | `Python` |
 | **Digital products** | Study systems & templates I sell on Gumroad. | `Notion` |
 
 ### 🛠️ Tech I work with
@@ -60,3 +60,9 @@ I'm a matric student who ships real software while finishing school. My focus is
 - 💼 **[linkedin.com/in/thando-frans](https://www.linkedin.com/in/thando-frans)**
 
 <p align="center"><i>"Build while you learn. Ship while you're young."</i></p>
+
+---
+
+<sub>This repo also holds <code>life</code> — see <a href="docs/LIFE_OS.md">docs/LIFE_OS.md</a>.
+Personal data is never committed here; it lives in <code>~/.life/</code>, outside the repo, and a
+pre-commit guard plus CI enforce that.</sub>

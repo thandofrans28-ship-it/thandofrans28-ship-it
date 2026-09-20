@@ -17,8 +17,10 @@ strongest signal you can own — buy it. `.com` is best; `thandofrans.dev` (~$10
 
 - Buy at: https://vercel.com/domains/search?q=thandofrans.com (or any registrar — Namecheap, GoDaddy, etc.)
 
-The whole site (canonical URL, structured data, sitemap) is **already pointed at `https://thandofrans.com`**,
-so once the domain is live, everything lines up automatically.
+The domain is **not registered yet** (confirmed: no DNS record exists), so the site currently
+points at its GitHub Pages URL instead. Once you buy the domain, switch it back in four places:
+`index.html` (canonical, `og:url`, and the JSON-LD `url`), `sitemap.xml`, `robots.txt`, and add a
+`CNAME` file containing just `thandofrans.com`. That is the whole change.
 
 ## ✅ Step 2 — Put the site online
 
@@ -41,8 +43,8 @@ The site (`index.html`, `sitemap.xml`, `robots.txt`, `404.html`, `CNAME`) is in 
 
 ### Option C — instant free URL, no domain yet
 Enable GitHub Pages on **this** repo (Settings → Pages → main/root). You'll get
-`https://thandofrans28-ship-it.github.io/thandofrans28-ship-it/`. If you use this instead of the
-domain, change every `https://thandofrans.com` in `index.html`, `sitemap.xml`, `robots.txt` to that URL.
+`https://thandofrans28-ship-it.github.io/thandofrans28-ship-it/` — a subpath, because this repo is
+not named `thandofrans28-ship-it.github.io`. The site already points there.
 
 ## ✅ Step 3 — Tell Google it exists (don't wait to be found)
 

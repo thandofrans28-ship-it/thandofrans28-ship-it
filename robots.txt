@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thandofrans.com/sitemap.xml
+# Note: at a project-pages subpath this file is advisory only — crawlers read
+# robots.txt from the domain root, which this repo does not control.
+Sitemap: https://thandofrans28-ship-it.github.io/thandofrans28-ship-it/sitemap.xml
