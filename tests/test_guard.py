@@ -230,3 +230,65 @@ def test_scan_all_ignores_whatever_happens_to_be_staged(repo):
     Path("clean.md").write_text("nothing here")
     subprocess.run(["git", "add", "clean.md"], check=True)
     assert any("dirty.md" in f for f in guard.scan_tracked())
+
+
+
+# ── requirement text is not a disclosure ─────────────────────────────────────
+# Found by sweeping the other repos: twenty lines of scraped bursary
+# eligibility criteria matched the mark rules, and not one was a real mark.
+
+@pytest.mark.parametrize("content", [
+    "The bursary requires an average of 65%",
+    "Eligibility criteria: a result of 70% in Mathematics",
+    "Minimum average of 60% across the best six",
+    "must have achieved 70% in English",
+    "Applicants need a pass mark of 50%",
+    "Moshal requires 70% in English, Maths and Physical Sciences",
+    "the threshold is an average of 75%",
+    "cut-off is 60%",
+])
+def test_requirement_thresholds_are_not_flagged_as_marks(repo, content):
+    repo(content)
+    assert guard.scan() == [], f"requirement text flagged: {content!r}"
+
+
+@pytest.mark.parametrize("content,label", [
+    ("English is sitting at 66%", "reported mark"),
+    ("I got 84% for Maths", "reported mark"),
+    ("my average of 75% this term", "reported mark"),
+    ("Mathematics 84%", "subject mark"),
+    ("Physical Sciences: 77%", "subject mark"),
+])
+def test_real_disclosures_survive_the_requirement_exemption(repo, content, label):
+    repo(content)
+    assert any(label in f for f in guard.scan()), f"missed {content!r}"
+
+
+def test_requirement_exemption_does_not_touch_the_other_rules(repo):
+    """Only the mark rules are suppressed; an ID in requirement text still
+    has to be caught."""
+    repo(f"Applicants require an ID: {FAKE_ID}")
+    assert any("SA ID number" in f for f in guard.scan())
+
+
+
+# ── CSS percentages are not marks ────────────────────────────────────────────
+# Found in clutchclips.ai: `mark { width: 60% }` is an HTML element selector,
+# and stylesheets are full of percentages.
+
+@pytest.mark.parametrize("content", [
+    "mark { width: 60% }",
+    "  mark { width: 60%; }",
+    ".bar { height: 80% }",
+    "progress::-webkit-progress-value { width: 75% }",
+    "grid-template-columns: 60% 40%;",
+])
+def test_css_percentages_are_not_flagged(repo, content):
+    repo(content, name="style.css")
+    assert guard.scan() == [], f"CSS flagged: {content!r}"
+
+
+def test_a_mark_of_is_still_caught(repo):
+    """Tightening to require 'of' must not lose the real phrasing."""
+    repo("a mark of 84% in Maths")
+    assert any("reported mark" in f for f in guard.scan())

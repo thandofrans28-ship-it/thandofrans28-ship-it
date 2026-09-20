@@ -47,12 +47,35 @@ RULES: list[tuple[str, re.Pattern[str]]] = [
     ("subject mark", re.compile(
         r"\b(English|Mathematics|Maths|Physical Sciences|PhysSci|Life Sciences|"
         r"Afrikaans|Information Technology|Life Orientation)\b[\s:=-]{0,4}\b([4-9]\d)\s?%")),
+    # "of" is mandatory after mark/result/average. Bare "mark" matched the CSS
+    # selector in `mark { width: 60% }`, and stylesheets are full of
+    # percentages — another way this guard would have cried wolf.
     ("reported mark", re.compile(
-        r"\b(got|scored|achieved|sitting at|currently at|mark(?:ed)?(?: of)?|"
-        r"result(?: of)?|average(?: of)?)\b\D{0,10}?\b([4-9]\d)\s?%", re.I)),
+        r"\b(got|scored|achieved|sitting at|currently at|"
+        r"(?:mark(?:ed)?|result|average)\s+of)\b\D{0,10}?\b([4-9]\d)\s?%", re.I)),
     ("personal store file", re.compile(r"(^|/)store\.json\b")),
     ("bank/account number", re.compile(r"\b(?:acc(?:ount)?|iban)\W{0,3}\d{8,}\b", re.I)),
 ]
+
+# The two mark rules read a percentage as a result somebody earned. On a line
+# that states a requirement it is a threshold somebody must meet, which is not
+# a disclosure. Bursary eligibility text is full of "requires an average of
+# 65%", and this repo's own docs discuss exactly those criteria — so without
+# this, writing about a bursary would block the commit. Sweeping the other
+# repos turned up twenty such lines in scraped criteria and not one real mark.
+MARK_RULES = frozenset({"subject mark", "reported mark"})
+REQUIREMENT_CONTEXT = re.compile(
+    r"\b(requires?|required|requirement|minimum|at least|no less than|"
+    r"must (?:have|achieve)|eligib\w*|criteri\w*|threshold|pass mark|"
+    r"needs? (?:a|an|at)|qualify|cut-?off)\b", re.I)
+
+
+def rules_for(line: str) -> list[tuple[str, re.Pattern[str]]]:
+    """The rules that apply to this line, dropping marks in requirement text."""
+    if REQUIREMENT_CONTEXT.search(line):
+        return [r for r in RULES if r[0] not in MARK_RULES]
+    return RULES
+
 
 # Paths where a match is expected and harmless. Deliberately two files, not two
 # directories: tests/ is exactly where realistic-looking fixtures accumulate, so
@@ -99,7 +122,7 @@ def scan_tracked() -> list[str]:
         except (OSError, UnicodeDecodeError):
             continue  # binary or unreadable; nothing to match
         for number, line in enumerate(text.splitlines(), 1):
-            for label, pattern in RULES:
+            for label, pattern in rules_for(line):
                 if label == "personal store file":
                     continue
                 m = pattern.search(line)
@@ -186,7 +209,7 @@ def scan() -> list[str]:
             continue
         if ALLOWLIST.match(current):
             continue
-        for label, pattern in RULES:
+        for label, pattern in rules_for(line):
             if label == "personal store file":
                 continue
             m = pattern.search(line)
