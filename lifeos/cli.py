@@ -11,10 +11,14 @@ from pathlib import Path
 from typing import Any
 
 from . import __version__, store
-from .render import c, countdown, heading, table, urgency
+from .render import c, clip, countdown, heading, table, urgency
 from .scoring import improvement_plan, su_selection, uct_fps
 
 SEED = Path(__file__).resolve().parent.parent / "seed"
+
+# `brief` is a glance, often on a phone. Long cells are clipped there and shown
+# in full by `life deadlines`; widths are characters of plain text.
+WHAT, WITH, ACTION = 56, 24, 72
 
 
 # ── helpers ───────────────────────────────────────────────────────────────────
@@ -96,8 +100,9 @@ def cmd_brief(args, data):
     print(heading(f"deadlines — next {args.within} days"))
     if soon:
         print(table(
-            [[countdown(d["_days"]), c(d.get("what", "?"), "bold" if d["_days"] <= 7 else ""),
-              d.get("owner", ""), d.get("action", "")] for d in soon],
+            [[countdown(d["_days"]),
+              c(clip(d.get("what", "?"), WHAT), "bold" if d["_days"] <= 7 else ""),
+              clip(d.get("owner", ""), WITH), clip(d.get("action", ""), ACTION)] for d in soon],
             ["when", "what", "with", "next action"],
         ))
     else:
@@ -115,8 +120,14 @@ def cmd_brief(args, data):
             since = days_until(l.get("waiting_since"))
             age = c(f"{abs(since)}d", "red" if since is not None and abs(since) >= 5 else "yellow") if since is not None else ""
             flag = c("!", "red", "bold") if l.get("priority") == "high" else " "
-            rows.append([flag, age, c(l.get("what", "?"), "bold"), l.get("action", "")])
+            rows.append([flag, age, c(clip(l.get("what", "?"), WHAT), "bold"),
+                         clip(l.get("action", ""), ACTION)])
         print(table(rows, ["", "age", "what", "do"]))
+
+    cut = any(clip(i.get(k, ""), w) != " ".join(str(i.get(k, "")).split())
+              for i in soon + loops for k, w in (("what", WHAT), ("owner", WITH), ("action", ACTION)))
+    if cut:
+        print(c("\n  Long entries are cut short here; `life deadlines` shows them in full.", "grey"))
 
     print()
     return 0
@@ -311,8 +322,9 @@ def cmd_doctor(args, data):
     for d in data.get("documents", []):
         if not d.get("have"):
             sev = "fail" if d.get("blocking") else "warn"
-            problems.append((sev, f"Missing document: {d.get('name')}"
-                                  + (" — blocks overseas applications" if d.get("blocking") else "")))
+            blocks = d.get("blocks")
+            note = f" — blocks {blocks}" if blocks else " — blocking" if d.get("blocking") else ""
+            problems.append((sev, f"Missing document: {d.get('name')}{note}"))
 
     for l in data.get("open_loops", []):
         if l.get("done"):

@@ -53,6 +53,15 @@ def countdown(days: int | None) -> str:
     return c(f"{days}d", urgency(days))
 
 
+def clip(text: str, limit: int) -> str:
+    """Shorten plain text to ``limit`` characters, marking the cut with an ellipsis.
+
+    Apply before colouring: an escape sequence cut in half corrupts the terminal.
+    """
+    text = " ".join(str(text).split())
+    return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"
+
+
 def table(rows: list[list[str]], headers: list[str] | None = None) -> str:
     """Left-aligned table that measures width ignoring ANSI escapes."""
     if not rows:

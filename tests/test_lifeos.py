@@ -402,3 +402,37 @@ def test_sync_reports_a_missing_file_instead_of_raising(tmp_path, monkeypatch, c
     monkeypatch.setenv("NO_COLOR", "1")
     assert main(["sync", str(tmp_path / "nope.json")]) == 1
     assert "Cannot read" in capsys.readouterr().out
+
+
+# ── brief stays readable on a phone; doctor says what a document blocks ──────
+
+def test_brief_clips_long_entries_and_points_to_the_full_view(seeded, capsys):
+    data = store.load()
+    long_action = "Open the portal, find the upload section at the very bottom, " * 3
+    data["deadlines"] = [{"due": "2026-09-25", "what": "Example scholarship",
+                          "action": long_action}]
+    store.save(data)
+    assert main(["brief"]) == 0
+    out = capsys.readouterr().out
+    assert long_action.strip() not in out
+    assert "…" in out and "life deadlines" in out
+    assert main(["deadlines"]) == 0
+    assert long_action.strip() in " ".join(capsys.readouterr().out.split())
+
+
+def test_brief_adds_no_hint_when_nothing_was_cut(seeded, capsys):
+    assert main(["brief"]) == 0
+    assert "cut short" not in capsys.readouterr().out
+
+
+def test_doctor_names_what_a_document_blocks(seeded, capsys):
+    data = store.load()
+    data["documents"] = [{"name": "Signed form", "have": False, "blocking": True,
+                          "blocks": "the funding application"},
+                         {"name": "Other form", "have": False, "blocking": True}]
+    store.save(data)
+    assert main(["doctor"]) == 1
+    out = capsys.readouterr().out
+    assert "Signed form — blocks the funding application" in out
+    assert "Other form — blocking" in out
+    assert "overseas" not in out

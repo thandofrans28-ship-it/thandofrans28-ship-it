@@ -35,6 +35,21 @@ no credentials on disk.
 formulas. They decide a university application, so changes need a test that
 pins the arithmetic. Test fixtures are synthetic; never use real marks.
 
+## Working with Claude here
+
+`.claude/` carries the setup into every cloud session: a SessionStart hook
+(date, next paper, pytest installed), the privacy guard on `git commit` and on
+GitHub MCP commits, `ask` on sending, sharing and deleting, Sonnet `researcher`
+and `fact-checker` agents, and the `life-sync` and `mastermind` skills.
+
+- A date, amount or eligibility rule that drives an action needs its
+  primary-source URL. Never act on one marked UNVERIFIED.
+- Plan first for changes to `scoring.py`, the hooks, or anything that sends.
+  Skip the plan when the diff fits in one sentence.
+- When the work asked for is done and checked, stop and report. Don't add
+  features, files or refactors nobody asked for; mention them at the end.
+- When Claude gets the same thing wrong twice, add one line here.
+
 ## Conventions
 
 - Stdlib only. No runtime dependencies.
