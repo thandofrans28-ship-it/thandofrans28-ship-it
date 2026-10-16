@@ -38,7 +38,7 @@ Write JSON with only the keys that changed. Schema:
   "deadlines":    [{"due": "2026-09-30", "what": "", "owner": "", "status": "", "action": ""}],
   "open_loops":   [{"what": "", "waiting_since": "2026-09-13", "priority": "high", "action": ""}],
   "applications": [{"name": "", "stage": "action-needed", "note": ""}],
-  "documents":    [{"name": "", "have": false, "blocking": true}],
+  "documents":    [{"name": "", "have": false, "blocking": true, "blocks": "NSFAS"}],
   "projects":     [{"name": "", "repo": "", "status": "blocked",
                     "last_push": "2026-09-13", "blocker": "", "note": ""}]
 }
@@ -49,6 +49,11 @@ Write JSON with only the keys that changed. Schema:
 `active`, `dormant`, `archived` — and `blocker` is set only when something
 outside the repo is stopping it, which is what `life doctor` fails on. `waiting_since` is the date **they** last wrote, not when
 you noticed — the age is the signal.
+
+Keep `what` under about 60 characters and `action` under about 100: `life
+brief` is read on a phone and clips longer cells (`life deadlines` shows them
+in full). Thread ids and evidence belong in your report, not in the store.
+`blocks` names what a missing document holds up.
 
 `action` must be the next physical step, not a restatement. "Upload via the
 link in their original email — a reply attachment does not count" is an action.

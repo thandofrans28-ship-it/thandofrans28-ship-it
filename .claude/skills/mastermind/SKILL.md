@@ -30,7 +30,10 @@ that ignores what is already in Gmail or Notion is noise.
 
 ## 4. Fan out
 
-One `researcher` agent per independent question, launched together in the
+Fewer than three independent questions: answer them inline, no agents. Each
+agent starts cold and spends the same quota as this session.
+
+Otherwise, one `researcher` agent per independent question, launched together in the
 background. Each starts cold, so give it everything: who Thando is, today's
 date, the exact question, the scratchpad output path, and the rule that every
 claim carries a URL and a status. Keep orchestration and judgment for
@@ -61,3 +64,12 @@ Permission settings back this up: send, share and delete tools are on `ask`.
 4. What you could not verify.
 
 Short sentences. No praise, no recap of the request.
+
+## For Thando: a line to start a voice note with
+
+> Brain-dump below. Don't start yet. List each goal in one line, rank them by
+> what bites soonest, ask me up to five questions, then give a plan that says
+> how we'll check each thing worked. Wait for go.
+
+It is Anthropic's interview-then-plan pattern
+(code.claude.com/docs/en/best-practices) in one breath.
