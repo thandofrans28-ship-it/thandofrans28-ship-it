@@ -12,10 +12,11 @@ profiles Google already trusts, and (3) time + a few links pointing at you.** Th
 
 ## Status (2026-10-16)
 
-- The site is published from its own repo,
-  [`thandofrans28-ship-it.github.io`](https://github.com/thandofrans28-ship-it/thandofrans28-ship-it.github.io),
-  at the root URL **https://thandofrans28-ship-it.github.io/**, so `robots.txt` and `sitemap.xml`
-  now take effect. `index.html` here is the source; copy changes across when you edit it.
+- **Not live yet — one step for you.** Create a public repo named exactly
+  `thandofrans28-ship-it.github.io` and upload `index.html`, `404.html`, `robots.txt` and
+  `sitemap.xml` from this repo. GitHub then serves it at **https://thandofrans28-ship-it.github.io/**
+  (check Settings → Pages shows `main` / root). At that root URL `robots.txt` and `sitemap.xml`
+  take effect. `index.html` here stays the source; copy changes across when you edit it.
 - Canonical, `og:url`, JSON-LD, sitemap and robots all point at that root URL.
 - LinkedIn is linked as `thando-frans-081182401` everywhere (the old `thando-frans` URL is gone).
 - Email, school and town are left off the indexed site, matching the profile README.
