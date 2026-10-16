@@ -292,3 +292,61 @@ def test_a_mark_of_is_still_caught(repo):
     """Tightening to require 'of' must not lose the real phrasing."""
     repo("a mark of 84% in Maths")
     assert any("reported mark" in f for f in guard.scan())
+
+
+# ── commits through the GitHub MCP tools ─────────────────────────────────────
+# These write straight to GitHub, so `git diff --cached` never sees them.
+
+def _github_call(tool: str, tool_input: dict) -> subprocess.CompletedProcess:
+    import json
+    return _run(["--hook"], json.dumps({"tool_name": tool, "tool_input": tool_input}))
+
+
+PUBLIC = {"owner": "thandofrans28-ship-it", "repo": "thandofrans28-ship-it"}
+
+
+def test_github_single_file_write_with_an_id_is_blocked(repo):
+    r = _github_call("mcp__github__create_or_update_file",
+                     {**PUBLIC, "path": "notes.md", "content": f"My ID is {FAKE_ID}",
+                      "message": "wip", "branch": "claude/x"})
+    assert r.returncode == 2
+    assert "notes.md:1: SA ID number" in r.stderr
+
+
+def test_github_push_files_blocks_on_any_dirty_file(repo):
+    r = _github_call("mcp__github__push_files", {**PUBLIC, "branch": "claude/x", "message": "wip",
+                     "files": [{"path": "clean.md", "content": "nothing here"},
+                               {"path": "docs/x.md", "content": "line one\nMathematics 52% this term"}]})
+    assert r.returncode == 2
+    assert "docs/x.md:2: subject mark" in r.stderr
+    assert "clean.md" not in r.stderr
+
+
+def test_github_push_of_a_store_file_is_blocked_by_its_path(repo):
+    r = _github_call("mcp__github__push_files", {**PUBLIC, "branch": "claude/x", "message": "wip",
+                     "files": [{"path": "data/store.json", "content": "{}"}]})
+    assert r.returncode == 2
+    assert "personal store file" in r.stderr
+
+
+def test_github_clean_write_is_allowed(repo):
+    r = _github_call("mcp__github__create_or_update_file",
+                     {**PUBLIC, "path": "README.md", "content": "Hello", "message": "x", "branch": "b"})
+    assert r.returncode == 0 and r.stderr == ""
+
+
+def test_github_write_to_another_repo_is_out_of_scope(repo):
+    r = _github_call("mcp__github__create_or_update_file",
+                     {"owner": "someone", "repo": "else", "path": "n.md",
+                      "content": f"My ID is {FAKE_ID}", "message": "x", "branch": "b"})
+    assert r.returncode == 0
+
+
+@pytest.mark.parametrize("stdin", [
+    '["a", "list"]',
+    '{"tool_name": "mcp__github__push_files", "tool_input": "not an object"}',
+    '{"tool_name": "mcp__github__push_files", "tool_input": '
+    '{"owner": "thandofrans28-ship-it", "repo": "thandofrans28-ship-it", "files": ["junk", 3]}}',
+])
+def test_hook_fails_open_on_malformed_tool_calls(repo, stdin):
+    assert _run(["--hook"], stdin).returncode == 0

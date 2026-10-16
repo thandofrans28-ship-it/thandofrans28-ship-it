@@ -90,6 +90,8 @@ Anyone can read it.
 - **A PreToolUse hook blocks `git commit`** when the staged diff contains an ID
   number, a mark, an application reference, a bank number or a store file
   (`scripts/check_no_personal_data.py`, wired in `.claude/settings.json`).
+  The same hook reads commits made through the GitHub MCP tools
+  (`create_or_update_file`, `push_files`), which never touch the index.
   Documentation is advisory; this is not.
 - CI re-scans every tracked file with `--all`, because a fresh checkout stages
   nothing and a diff-based scan there would pass without proving anything.

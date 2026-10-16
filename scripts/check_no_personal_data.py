@@ -16,10 +16,15 @@ reads the tool call from stdin and only acts on `git commit`. That flag is
 explicit on purpose: deciding by isatty() blocks forever in any non-TTY caller
 that pipes nothing, which is most of them.
 
+The same hook also reads commits Claude makes through the GitHub MCP tools
+(`create_or_update_file`, `push_files`). Those write straight to GitHub and
+never touch the index, so the staged-diff scan cannot see them; the hook scans
+the file contents in the tool call instead.
+
 Note what this does NOT cover: it is a Claude Code hook, not a git hook, so a
-commit made by hand in a terminal bypasses it, as does any write that goes
-straight to the GitHub API. CI's --all scan is the backstop, and on a public
-repo a post-push scan is detection rather than prevention.
+commit made by hand in a terminal bypasses it, as does an edit in the GitHub
+web UI. CI's --all scan is the backstop, and on a public repo a post-push scan
+is detection rather than prevention.
 """
 
 from __future__ import annotations
@@ -114,20 +119,54 @@ def scan_tracked() -> list[str]:
     for path in tracked_paths():
         if ALLOWLIST.match(path):
             continue
-        for label, pattern in RULES:
-            if label == "personal store file" and pattern.search(path):
-                findings.append(f"{path}: {label}")
         try:
             text = pathlib.Path(path).read_text(encoding="utf-8")
         except (OSError, UnicodeDecodeError):
-            continue  # binary or unreadable; nothing to match
-        for number, line in enumerate(text.splitlines(), 1):
-            for label, pattern in rules_for(line):
-                if label == "personal store file":
-                    continue
-                m = pattern.search(line)
-                if m:
-                    findings.append(f"{path}:{number}: {label} — {m.group(0)[:40]!r}")
+            findings += scan_file(path, "")  # binary: the path still counts
+            continue
+        findings += scan_file(path, text)
+    return findings
+
+
+def scan_file(path: str, text: str) -> list[str]:
+    """Findings for one whole file: its path, then every line of its text."""
+    findings = [f"{path}: {label}" for label, pattern in RULES
+                if label == "personal store file" and pattern.search(path)]
+    for number, line in enumerate(text.splitlines(), 1):
+        for label, pattern in rules_for(line):
+            if label == "personal store file":
+                continue
+            m = pattern.search(line)
+            if m:
+                findings.append(f"{path}:{number}: {label} — {m.group(0)[:40]!r}")
+    return findings
+
+
+# GitHub MCP tools that commit file contents directly, bypassing the index.
+GITHUB_WRITES = frozenset({"mcp__github__create_or_update_file", "mcp__github__push_files"})
+PUBLIC_REPO = "thandofrans28-ship-it/thandofrans28-ship-it"
+
+
+def scan_github_write(tool_input: dict) -> list[str]:
+    """Findings for a commit made through the GitHub MCP tools.
+
+    Scoped to this public repo: the guard exists for it, and blocking writes
+    to other repos would be the kind of noise that gets a guard disabled.
+    """
+    target = f"{tool_input.get('owner', '')}/{tool_input.get('repo', '')}"
+    if target.lower() != PUBLIC_REPO:
+        return []
+    files = tool_input.get("files")
+    if not isinstance(files, list):  # create_or_update_file: one file, flat
+        files = [{"path": tool_input.get("path"), "content": tool_input.get("content")}]
+    findings: list[str] = []
+    for f in files:
+        if not isinstance(f, dict):
+            continue
+        path = str(f.get("path") or "")
+        if ALLOWLIST.match(path):
+            continue
+        findings += scan_file(path, str(f.get("content") or ""))
     return findings
 
 
@@ -242,7 +281,14 @@ def main() -> int:
             payload = json.loads(raw)
         except json.JSONDecodeError:
             return 0  # not a tool call we understand; stay out of the way
-        command = (payload.get("tool_input") or {}).get("command", "")
+        if not isinstance(payload, dict):
+            return 0
+        tool_input = payload.get("tool_input") or {}
+        if not isinstance(tool_input, dict):
+            return 0
+        if payload.get("tool_name") in GITHUB_WRITES:
+            return _report(scan_github_write(tool_input))
+        command = str(tool_input.get("command", ""))
         if "git commit" not in command:
             return 0
         if commit_reaches_beyond_the_index(command):
