@@ -10,6 +10,18 @@ profiles Google already trusts, and (3) time + a few links pointing at you.** Th
 
 ---
 
+## Status (2026-10-16)
+
+- The site is published from its own repo,
+  [`thandofrans28-ship-it.github.io`](https://github.com/thandofrans28-ship-it/thandofrans28-ship-it.github.io),
+  at the root URL **https://thandofrans28-ship-it.github.io/**, so `robots.txt` and `sitemap.xml`
+  now take effect. `index.html` here is the source; copy changes across when you edit it.
+- Canonical, `og:url`, JSON-LD, sitemap and robots all point at that root URL.
+- LinkedIn is linked as `thando-frans-081182401` everywhere (the old `thando-frans` URL is gone).
+- Email, school and town are left off the indexed site, matching the profile README.
+- A search for "Thando Frans" on 2026-10-16 returned nobody with that exact name, so there is
+  no one to outrank. The work left is getting indexed (Step 3) and linking profiles (Step 4).
+
 ## ✅ Step 1 — Get the domain (biggest single lever)
 
 `thandofrans.com` is **available for ~$11.25/year**. An exact-match domain for your name is the

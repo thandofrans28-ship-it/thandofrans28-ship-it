@@ -103,7 +103,7 @@ Built by **Thando Frans** — a Grade 12 (IEB) student in East London, South Afr
 **Electrical Engineering**. Pathfinda started from a simple observation: my classmates were making
 massive decisions with almost no data. So I built the tool I wished we had.
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/thando-frans)
+- 💼 [LinkedIn](https://www.linkedin.com/in/thando-frans-081182401)
 - ✉️ thandofrans28@gmail.com
 
 ## 📄 License

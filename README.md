@@ -18,7 +18,7 @@ Dart · Python · Java · SQL
 
 ### Contact
 
-[LinkedIn](https://www.linkedin.com/in/thando-frans-081182401)
+[Website](https://thandofrans28-ship-it.github.io/) · [LinkedIn](https://www.linkedin.com/in/thando-frans-081182401)
 
 ---
 
